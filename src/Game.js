@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Board from './components/Board';
 
 /* TODO:
-Display the location for each move in the format (col, row) in the move history list.
 Bold the currently selected item in the move list.
 Rewrite Board to use two loops to make the squares instead of hardcoding them.
 Add a toggle button that lets you sort the moves in either ascending or descending order.
@@ -65,9 +64,10 @@ const Game = () => {
   const moves = history.map((move, step) => {
     const [x, y] = move.location;
     const desc = step ? `Go to move #${step}: (${y}, ${x})` : 'Go to game start';
+    const boldSelected = step === stepNumber ? 'fw-bold' : '';
     return (
       <li key={move.squares.join('')}>
-        <button type="button" onClick={() => jumpTo(step)}>
+        <button className={boldSelected} type="button" onClick={() => jumpTo(step)}>
           {desc}
         </button>
       </li>
