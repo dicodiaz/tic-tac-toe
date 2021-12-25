@@ -13,6 +13,7 @@ const Game = () => {
   const [history, setHistory] = useState([
     {
       squares: [...Array(9).fill(null)],
+      location: ['Easter', 'Egg'],
     },
   ]);
   const [xIsNext, setXIsNext] = useState(true);
@@ -44,7 +45,14 @@ const Game = () => {
     const newSquares = [...current.squares];
     if (calculateWinner(newSquares) || newSquares[i]) return;
     newSquares[i] = xIsNext ? 'X' : 'O';
-    setHistory((prevHistory) => [...prevHistory, { squares: newSquares }]);
+    const location = [Math.floor(i / 3), i % 3];
+    setHistory([
+      ...newHistory,
+      {
+        squares: newSquares,
+        location,
+      },
+    ]);
     setXIsNext((prev) => !prev);
     setStepNumber(newHistory.length);
   };
@@ -54,11 +62,12 @@ const Game = () => {
     setXIsNext(step % 2 === 0);
   };
 
-  const moves = history.map((step, move) => {
-    const desc = move ? `Go to move #${move}` : 'Go to game start';
+  const moves = history.map((move, step) => {
+    const [x, y] = move.location;
+    const desc = step ? `Go to move #${step}: (${y}, ${x})` : 'Go to game start';
     return (
-      <li key={step.squares.join('')}>
-        <button type="button" onClick={() => jumpTo(move)}>
+      <li key={move.squares.join('')}>
+        <button type="button" onClick={() => jumpTo(step)}>
           {desc}
         </button>
       </li>
