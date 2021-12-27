@@ -1,9 +1,8 @@
 import { useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import Board from './components/Board';
 
 /* TODO:
-Bold the currently selected item in the move list.
-Rewrite Board to use two loops to make the squares instead of hardcoding them.
 Add a toggle button that lets you sort the moves in either ascending or descending order.
 When someone wins, highlight the three squares that caused the win.
 When no one wins, display a message about the result being a draw. */
@@ -81,15 +80,17 @@ const Game = () => {
   else status = `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board squares={current.squares} handleClickProp={(i) => handleClick(i)} />
-      </div>
-      <div className="game-info">
-        <div>{status}</div>
-        <ol>{moves}</ol>
-      </div>
-    </div>
+    <Container as="main" className="min-vh-100 d-flex flex-column justify-content-center">
+      <Row className="mx-0 justify-content-center" rows={2}>
+        <Col className="d-flex justify-content-end">
+          <Board squares={current.squares} handleClickProp={(i) => handleClick(i)} />
+        </Col>
+        <Col>
+          <div>{status}</div>
+          <ol>{moves}</ol>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
