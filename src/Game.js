@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import Board from './components/Board';
 
 /* TODO:
-Add a toggle button that lets you sort the moves in either ascending or descending order.
 When someone wins, highlight the three squares that caused the win.
 When no one wins, display a message about the result being a draw. */
 
@@ -16,6 +15,7 @@ const Game = () => {
   ]);
   const [xIsNext, setXIsNext] = useState(true);
   const [stepNumber, setStepNumber] = useState(0);
+  const [sortAscending, setSortAscending] = useState(true);
 
   const calculateWinner = (squares) => {
     const lines = [
@@ -86,8 +86,11 @@ const Game = () => {
           <Board squares={current.squares} handleClickProp={(i) => handleClick(i)} />
         </Col>
         <Col>
+          <Button onClick={() => setSortAscending((prev) => !prev)}>
+            Sort: {sortAscending ? 'Ascending' : 'Descending'}
+          </Button>
           <div>{status}</div>
-          <ol>{moves}</ol>
+          <ol className={`d-flex flex-column${sortAscending ? '' : '-reverse'}`}>{moves}</ol>
         </Col>
       </Row>
     </Container>
