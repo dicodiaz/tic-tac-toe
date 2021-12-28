@@ -3,7 +3,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import Board from './components/Board';
 
 /* TODO:
-When no one wins, display a message about the result being a draw. */
+ */
 
 const Game = () => {
   const [history, setHistory] = useState([
@@ -76,6 +76,7 @@ const Game = () => {
   const winner = calculateWinner(current.squares);
   let status;
   if (winner) status = `Winner: ${winner[0]}`;
+  else if (current.squares.every((elem) => elem)) status = 'Draw';
   else status = `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
