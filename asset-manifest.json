@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/tic-tac-toe/static/css/main.94b28a67.chunk.css",
-    "main.js": "/tic-tac-toe/static/js/main.7eda0b55.chunk.js",
-    "main.js.map": "/tic-tac-toe/static/js/main.7eda0b55.chunk.js.map",
-    "runtime-main.js": "/tic-tac-toe/static/js/runtime-main.76d88904.js",
-    "runtime-main.js.map": "/tic-tac-toe/static/js/runtime-main.76d88904.js.map",
+    "main.css": "/tic-tac-toe/static/css/main.73971734.chunk.css",
+    "main.js": "/tic-tac-toe/static/js/main.1845c963.chunk.js",
+    "main.js.map": "/tic-tac-toe/static/js/main.1845c963.chunk.js.map",
+    "runtime-main.js": "/tic-tac-toe/static/js/runtime-main.1ef18377.js",
+    "runtime-main.js.map": "/tic-tac-toe/static/js/runtime-main.1ef18377.js.map",
     "static/css/2.0a9ec390.chunk.css": "/tic-tac-toe/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.52a277a8.chunk.js": "/tic-tac-toe/static/js/2.52a277a8.chunk.js",
-    "static/js/2.52a277a8.chunk.js.map": "/tic-tac-toe/static/js/2.52a277a8.chunk.js.map",
-    "static/js/3.7d9941ed.chunk.js": "/tic-tac-toe/static/js/3.7d9941ed.chunk.js",
-    "static/js/3.7d9941ed.chunk.js.map": "/tic-tac-toe/static/js/3.7d9941ed.chunk.js.map",
+    "static/js/2.4d46ceee.chunk.js": "/tic-tac-toe/static/js/2.4d46ceee.chunk.js",
+    "static/js/2.4d46ceee.chunk.js.map": "/tic-tac-toe/static/js/2.4d46ceee.chunk.js.map",
+    "static/js/3.6f16a750.chunk.js": "/tic-tac-toe/static/js/3.6f16a750.chunk.js",
+    "static/js/3.6f16a750.chunk.js.map": "/tic-tac-toe/static/js/3.6f16a750.chunk.js.map",
     "index.html": "/tic-tac-toe/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/tic-tac-toe/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.94b28a67.chunk.css.map": "/tic-tac-toe/static/css/main.94b28a67.chunk.css.map",
-    "static/js/2.52a277a8.chunk.js.LICENSE.txt": "/tic-tac-toe/static/js/2.52a277a8.chunk.js.LICENSE.txt"
+    "static/css/main.73971734.chunk.css.map": "/tic-tac-toe/static/css/main.73971734.chunk.css.map",
+    "static/js/2.4d46ceee.chunk.js.LICENSE.txt": "/tic-tac-toe/static/js/2.4d46ceee.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.76d88904.js",
+    "static/js/runtime-main.1ef18377.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.52a277a8.chunk.js",
-    "static/css/main.94b28a67.chunk.css",
-    "static/js/main.7eda0b55.chunk.js"
+    "static/js/2.4d46ceee.chunk.js",
+    "static/css/main.73971734.chunk.css",
+    "static/js/main.1845c963.chunk.js"
   ]
 }
