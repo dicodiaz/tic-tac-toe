@@ -3,7 +3,6 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import Board from './components/Board';
 
 /* TODO:
-When someone wins, highlight the three squares that caused the win.
 When no one wins, display a message about the result being a draw. */
 
 const Game = () => {
@@ -31,7 +30,7 @@ const Game = () => {
     for (let i = 0; i < lines.length; i += 1) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+        return [squares[a], lines[i]];
       }
     }
     return null;
@@ -76,14 +75,18 @@ const Game = () => {
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
   let status;
-  if (winner) status = `Winner: ${winner}`;
+  if (winner) status = `Winner: ${winner[0]}`;
   else status = `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
     <Container as="main" className="min-vh-100 d-flex flex-column justify-content-center">
       <Row className="mx-0 justify-content-center" rows={2}>
         <Col className="d-flex justify-content-end">
-          <Board squares={current.squares} handleClickProp={(i) => handleClick(i)} />
+          <Board
+            squares={current.squares}
+            winnerSquares={winner ? winner[1] : []}
+            handleClickProp={(i) => handleClick(i)}
+          />
         </Col>
         <Col>
           <Button onClick={() => setSortAscending((prev) => !prev)}>
