@@ -1,28 +1,21 @@
 import { PropTypes } from 'prop-types';
 import Square from './Square';
 
-const Board = ({ squares, handleClickProp }) => {
+const Board = ({ squares, handleClickProp, winnerSquares }) => {
   const renderSquare = (i) => (
-    <Square value={squares[i]} handleClickProp={() => handleClickProp(i)} />
+    <Square
+      key={i}
+      value={squares[i]}
+      highlight={winnerSquares.includes(i)}
+      handleClickProp={() => handleClickProp(i)}
+    />
   );
 
   return (
     <div>
-      <div className="board-row">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
-      </div>
-      <div className="board-row">
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
-      </div>
-      <div className="board-row">
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
-      </div>
+      {[...Array(3).keys()].map((i) => (
+        <div key={i}>{[...Array(3).keys()].map((j) => renderSquare(3 * i + j))}</div>
+      ))}
     </div>
   );
 };
@@ -30,6 +23,7 @@ const Board = ({ squares, handleClickProp }) => {
 Board.propTypes = {
   squares: PropTypes.arrayOf(String).isRequired,
   handleClickProp: PropTypes.func.isRequired,
+  winnerSquares: PropTypes.arrayOf(Number).isRequired,
 };
 
 export default Board;
