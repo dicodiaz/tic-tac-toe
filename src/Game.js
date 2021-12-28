@@ -2,9 +2,6 @@ import { useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import Board from './components/Board';
 
-/* TODO:
- */
-
 const Game = () => {
   const [history, setHistory] = useState([
     {
@@ -61,14 +58,26 @@ const Game = () => {
 
   const moves = history.map((move, step) => {
     const [x, y] = move.location;
-    const desc = step ? `Go to move #${step}: (${y}, ${x})` : 'Go to game start';
-    const boldSelected = step === stepNumber ? 'fw-bold' : '';
+    const desc = step ? (
+      <span>
+        Go to move #{step}
+        <br className="d-md-none" />
+        (Col: {y}, Row: {x})
+      </span>
+    ) : (
+      'Go to game start'
+    );
     return (
-      <li key={move.squares.join('')}>
-        <button className={boldSelected} type="button" onClick={() => jumpTo(step)}>
+      <div key={move.squares.join('')}>
+        <Button
+          className={`mb-1 ${step === stepNumber ? ' fw-bold' : ''}`}
+          onClick={() => jumpTo(step)}
+          size="sm"
+          variant="secondary"
+        >
           {desc}
-        </button>
-      </li>
+        </Button>
+      </div>
     );
   });
 
@@ -80,9 +89,9 @@ const Game = () => {
   else status = `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
-    <Container as="main" className="min-vh-100 d-flex flex-column justify-content-center">
+    <Container as="main" className="min-vh-100 d-flex flex-column justify-content-center pt-5">
       <Row className="mx-0 justify-content-center" rows={2}>
-        <Col className="d-flex justify-content-end">
+        <Col className="d-flex justify-content-end align-items-center">
           <Board
             squares={current.squares}
             winnerSquares={winner ? winner[1] : []}
@@ -93,8 +102,10 @@ const Game = () => {
           <Button onClick={() => setSortAscending((prev) => !prev)}>
             Sort: {sortAscending ? 'Ascending' : 'Descending'}
           </Button>
-          <div>{status}</div>
-          <ol className={`d-flex flex-column${sortAscending ? '' : '-reverse'}`}>{moves}</ol>
+          <p className="lead my-2">{status}</p>
+          <ul className={`mb-0 list-unstyled d-flex flex-column${sortAscending ? '' : '-reverse'}`}>
+            {moves}
+          </ul>
         </Col>
       </Row>
     </Container>
