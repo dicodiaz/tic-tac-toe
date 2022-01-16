@@ -1,18 +1,16 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Tic-Tac-Toe
 
 This is the classic Tic-Tac-Toe game, built with React. Features:
 
-- Indicates when a player has won the game,
-- Stores a game’s history as a game progresses,
+- Indicates when a player has won the game.
+- Stores a game’s history as a game progresses.
 - Allows players to review a game’s history and see previous versions of a game’s board.
-- Display the location for each move in the format (col, row) in the move history list.
-- Bold the currently selected item in the move list.
-- Rewrite Board to use two loops to make the squares instead of hardcoding them.
-- Add a toggle button that lets you sort the moves in either ascending or descending order.
-- When someone wins, highlight the three squares that caused the win.
-- When no one wins, display a message about the result being a draw.
+- Displays the location for each move in the format (col, row) in the move history list.
+- Bolds the currently selected item in the move list.
+- Uses loops to render the squares instead of hardcoding them.
+- Has a toggle button that lets you sort the moves in either ascending or descending order.
+- When someone wins, highlights the three squares that caused the win.
+- When no one wins, displays a message about the result being a draw.
 
 ## Mobile
 
